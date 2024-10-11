@@ -1,0 +1,29 @@
+<p>crear-factura works!</p>
+
+<h2 *ngIf="!isUpdate">Crear nueva factura</h2>
+<h2 *ngIf="isUpdate">Editar factura</h2>
+<button routerLink='home'>Volver</button><br /><br />
+
+<form [formGroup]="facturaForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="monto">monto : </label>
+        <input type="number" id="monto" name="monto" formControlName="monto" required />
+    </div>
+    <div>
+        <label for="detalle">detalle: </label>
+        <input type="text" id="detalle" name="detalle" formControlName="detalle" required />
+    </div>
+    <div>
+        <label for="fecha">Fecha: </label>
+        <input type="date" id="fecha" name="fecha" formControlName="fecha" required />
+    </div>
+    <div>
+      <label for="cliente">cliente id : </label>
+      <input type="number" id="cliente" name="cliente" formControlName="cliente" required />
+  </div>
+
+
+    <button class="btnSave" type="submit" [disabled]="facturaForm.invalid">
+        <p>Guardar</p>
+    </button>
+</form>

@@ -1,0 +1,28 @@
+<p>listar-facturas works!</p>
+<h2>Facturas activos</h2>
+<button (click)="regresarHome()">Volver</button><br /><br />
+
+
+<ul>
+    <li *ngFor="let factura of facturas">
+    <div>
+        <strong>fecha: </strong> {{factura.fecha}}
+        </div>
+        <div>
+            <strong>monto: </strong> {{factura.monto}}
+        </div>
+        <div>
+            <strong>Detalle: </strong> {{factura.detalle}}
+        </div>
+        <div>
+          <strong>Cliente: </strong> {{factura.cliente.id}}
+      </div>
+
+        <button class="btnDel" (click)="eliminarFactura(factura)">
+            Eliminar
+        </button>
+        <button class="btnEdit" (click)="editarFactura(factura)">
+            Editar
+        </button>
+    </li>
+</ul>

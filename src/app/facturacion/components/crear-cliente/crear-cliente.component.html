@@ -1,0 +1,22 @@
+<h2 *ngIf="!isUpdate">Crear nuevo cliente</h2>
+<h2 *ngIf="isUpdate">Editar cliente</h2>
+<button routerLink='home'>Volver</button><br /><br />
+
+<form [formGroup]="clienteForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="nombre">Nombre: </label>
+        <input type="text" id="nombre" name="nombre" formControlName="nombre" required />
+    </div>
+    <div>
+        <label for="numeroTelefono">Numero de telefono: </label>
+        <input type="text" id="numeroTelefono" name="numeroTelefono" formControlName="numeroTelefono" required />
+    </div>
+    <div>
+        <label for="diaCreacion">Fecha creacion: </label>
+        <input type="date" id="diaCreacion" name="diaCreacion" formControlName="diaCreacion" required />
+    </div>
+
+    <button class="btnSave" type="submit" [disabled]="clienteForm.invalid">
+        <p>Guardar</p>
+    </button>
+</form>
